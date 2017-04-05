@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 	ram_load_hold.lock();
 
 	// Set up TCLAP cmdline
-	TCLAP::CmdLine BassBoost("BassBoost- a variable system load", ' ', "0.1");
+	TCLAP::CmdLine BassBoost("BassBoost- a variable system load", ' ', "1.0");
 	// Memory load CLI opt
 	TCLAP::ValueArg<int> ram_load_arg("m", "memory", "Amount of ram load (in MiB) to generate", false, 0, "int");
 	BassBoost.add(ram_load_arg);
