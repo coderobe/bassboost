@@ -1,13 +1,11 @@
-##BassBoost- a variable system load
-##bassboost  version: 1.0
+BassBoost- a variable system load
+===================
+`version 1.0`
 
-#USAGE:
+# USAGE:
+bassboost  [-q] [-c <int>] [-m <int>] [--] [--version] [-h]
 
-   bassboost  [-q] [-c <int>] [-m <int>] [--] [--version] [-h]
-
-
-#Where:
-
+# Where:
    -q,  --quiet
      Don't print anything
 
