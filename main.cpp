@@ -2,16 +2,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <thread>
 #include <functional>
-#include <mutex>
 #include <vector>
+#include <thread>
+#include <mutex>
+// If Windows
+//#include <mingw.thread.h>
+//#include <mingw.mutex.h>
 #include <tclap/CmdLine.h>
 
 static bool quiet = false;
 std::mutex unhold_hold;
+// If Windows
+//std::recursive_mutex unhold_hold;
 
 std::mutex ram_load_hold;
+// If Windows
+//std::recursive_mutex ram_load_hold;
 void ram_load_alloc(int amount){
 	int amount_bytes = sizeof(unsigned char)*1024*1024*amount;
 	if(!quiet) printf("Allocating... malloc(%dMiB)\n", amount);
@@ -25,6 +32,8 @@ void ram_load_alloc(int amount){
 }
 
 std::mutex cpu_load_hold;
+// If Windows
+//std::recursive_mutex cpu_load_hold;
 void cpu_load_hog(){
 	while(!cpu_load_hold.try_lock()){}
 	cpu_load_hold.unlock();
